@@ -1,0 +1,95 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply min-h-screen;
+  }
+  
+  .container-wide {
+    @apply container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight;
+  }
+  
+  .heading-md {
+    @apply text-2xl md:text-3xl font-bold text-neutral-900;
+  }
+  
+  .button-primary {
+    @apply bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-medium transition-colors;
+  }
+  
+  .button-secondary {
+    @apply bg-transparent hover:bg-purple-100 text-purple-500 px-6 py-3 rounded-lg font-medium border border-purple-500 transition-colors;
+  }
+  
+  .bg-soft-purple {
+    @apply bg-purple-100;
+  }
+  
+  .bg-soft-green {
+    @apply bg-green-100;
+  }
+  
+  .bg-soft-blue {
+    @apply bg-blue-100;
+  }
+  
+  .bg-soft-amber {
+    @apply bg-amber-100;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  [dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+}
+
+@layer utilities {
+  .stripe-grid-pattern {
+    background-image: linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.03) 25%, rgba(0, 0, 0, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.03) 75%, rgba(0, 0, 0, 0.03) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.03) 25%, rgba(0, 0, 0, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.03) 75%, rgba(0, 0, 0, 0.03) 76%, transparent 77%, transparent);
+    background-size: 40px 40px;
+  }
+  
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle at center, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);
+  }
+  
+  .bg-cta-pattern {
+    background-color: #6b46c1;
+    background-image: radial-gradient(at 0% 100%, rgba(107, 33, 168, 0.8) 0, transparent 50%), radial-gradient(at 100% 0%, rgba(79, 29, 120, 0.8) 0, transparent 50%);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
+}
