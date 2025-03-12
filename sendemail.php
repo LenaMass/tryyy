@@ -25,7 +25,7 @@ $message = $conn->real_escape_string($message);
 $sql = "INSERT INTO responses (name, email, message) VALUES ('$name', '$email', '$message')";
 if ($conn->query($sql) === TRUE) {
     // Prepare email
-    $to = "info@akid.co"; // Your email
+    $to = "merlenax@gmail.com"; // Your email
     $subject = "New Form Submission from $name";
     $body = "Name: $name\nEmail: $email\nMessage: $message";
     $headers = "From: $email\r\nReply-To: $email";
