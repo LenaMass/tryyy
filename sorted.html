@@ -1,0 +1,27 @@
+<form id="userForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById("userForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    
+    let formData = {
+        name: event.target.name.value,
+        email: event.target.email.value,
+        message: event.target.message.value
+    };
+
+    let response = await fetch("http://127.0.0.1:5000/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+    });
+
+    let result = await response.json();
+    alert(result.success || result.error);
+});
+</script>
